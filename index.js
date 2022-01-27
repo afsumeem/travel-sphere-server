@@ -56,6 +56,7 @@ async function run() {
                 rating,
                 status,
                 comment,
+                pic,
                 image: imgBuffer
             };
             const result = await blogCollection.insertOne(brand);
