@@ -39,7 +39,8 @@ async function run() {
             const date = req.body.date;
             const time = req.body.time;
             const status = req.body.status;
-            const pic2 = req.body.pic;
+            const comment = req.body.comment;
+            // const image2 = req.body.pic;
             const rating = req.body.rating;
             const pic = req.files.image;
 
@@ -57,7 +58,7 @@ async function run() {
                 rating,
                 status,
                 comment,
-                pic2,
+                // image2,
                 image: imgBuffer
             };
             const result = await blogCollection.insertOne(brand);
