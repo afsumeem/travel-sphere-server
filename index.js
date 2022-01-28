@@ -65,27 +65,33 @@ async function run() {
             res.json(result);
         });
 
-        //GET API for all the blogs showing UI
+        //get top spots api
         app.get("/blogs", async (req, res) => {
-            console.log(req.query)
-            const result = blogCollection.find({}).toArray();
-
-            //for pagination
-            // const currentPage = req.query.currentPage;
-            // const perPageBlog = parseInt(req.query.perPageBlog);
-            // let blog;
-            // const count = await result.count()
-            // if (currentPage) {
-            //     blog = await result.skip(currentPage * perPageBlog).limit(perPageBlog).toArray()
-            // } else {
-
-            //     blog = await result.toArray();
-            // }
-            // res.send({
-            //     count,
-            //     blog
-            // });
+            const spot = await blogCollection.find({}).toArray();
+            res.send(spot);
         });
+
+        //GET API for all the blogs showing UI
+        // app.get("/blogs", async (req, res) => {
+        //     console.log(req.query)
+        //     const result = blogCollection.find({}).toArray();
+
+        //for pagination
+        // const currentPage = req.query.currentPage;
+        // const perPageBlog = parseInt(req.query.perPageBlog);
+        // let blog;
+        // const count = await result.count()
+        // if (currentPage) {
+        //     blog = await result.skip(currentPage * perPageBlog).limit(perPageBlog).toArray()
+        // } else {
+
+        //     blog = await result.toArray();
+        // }
+        // res.send({
+        //     count,
+        //     blog
+        // });
+        // });
 
 
         // get single blog
