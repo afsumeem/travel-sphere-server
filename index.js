@@ -32,7 +32,7 @@ async function run() {
         //POST API- New Blog
         app.post('/blogs', async (req, res) => {
             const name = req.body.name;
-            const address = req.body.address;
+            const title = req.body.title;
             const location = req.body.location;
             const expense = req.body.expense;
             const email = req.body.email;
@@ -48,7 +48,7 @@ async function run() {
             const imgBuffer = Buffer.from(encodedPic, 'base64');
             const brand = {
                 name,
-                address,
+                title,
                 location,
                 expense,
                 email,
