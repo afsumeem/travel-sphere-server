@@ -40,7 +40,7 @@ async function run() {
             const time = req.body.time;
             const status = req.body.status;
             const comment = req.body.comment;
-            const image2 = req.body.pic;
+            const image2 = req.body.image2;
             const rating = req.body.rating;
             const pic = req.files.image;
             const picData = pic.data;
