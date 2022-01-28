@@ -68,23 +68,23 @@ async function run() {
         //GET API for all the blogs showing UI
         app.get("/blogs", async (req, res) => {
             console.log(req.query)
-            const result = blogCollection.find({});
+            const result = blogCollection.find({}).toArray();
 
             //for pagination
-            const currentPage = req.query.currentPage;
-            const perPageBlog = parseInt(req.query.perPageBlog);
-            let blog;
-            const count = await result.count()
-            if (currentPage) {
-                blog = await result.skip(currentPage * perPageBlog).limit(perPageBlog).toArray()
-            } else {
+            // const currentPage = req.query.currentPage;
+            // const perPageBlog = parseInt(req.query.perPageBlog);
+            // let blog;
+            // const count = await result.count()
+            // if (currentPage) {
+            //     blog = await result.skip(currentPage * perPageBlog).limit(perPageBlog).toArray()
+            // } else {
 
-                blog = await result.toArray();
-            }
-            res.send({
-                count,
-                blog
-            });
+            //     blog = await result.toArray();
+            // }
+            // res.send({
+            //     count,
+            //     blog
+            // });
         });
 
 
