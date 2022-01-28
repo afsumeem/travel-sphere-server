@@ -68,7 +68,7 @@ async function run() {
         //GET API for all the blogs showing UI
         app.get("/blogs", async (req, res) => {
             console.log(req.query)
-            const result = blogCollection.find({}).toArray();
+            const result = blogCollection.find({});
 
             //for pagination
             const currentPage = req.query.currentPage;
