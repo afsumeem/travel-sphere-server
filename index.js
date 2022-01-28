@@ -43,7 +43,6 @@ async function run() {
             const image2 = req.body.pic;
             const rating = req.body.rating;
             const pic = req.files.image;
-
             const picData = pic.data;
             const encodedPic = picData.toString('base64');
             const imgBuffer = Buffer.from(encodedPic, 'base64');
@@ -71,6 +70,12 @@ async function run() {
             const blogs = await blogCollection.find({}).toArray();
             res.send(blogs);
         });
+
+        // get single blog
+        app.get("/blogs/:id", async (req, res) => {
+            const blogDetails = await blogCollection.findOne({ _id: ObjectId(req.params.id) });
+            res.send(blogDetails);
+        })
 
         //Delete API - Blog
 
